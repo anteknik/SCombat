@@ -9,9 +9,9 @@ public interface IAddressService {
 
 	Person findById(Long id);
 	
-	//Person findBy(Address address);
+	Person findBy(Address address);
 	
-	//Person findBy(Integer kodepos);
+	Person findBy(Integer kodepos);
 
 	List<Person> findAll();
 

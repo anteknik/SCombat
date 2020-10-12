@@ -7,8 +7,9 @@ public class Person extends BaseEntity {
 	private String nama;
 	private String status;
 	private Date tanggalLahir;
-	//private Address alamat;
+	private Address alamat;
 	
+	public Person() {};
 	public Person(String nama, String status, Date tanggalLahir) {
 		this.nama = nama;
 		this.status = status;
@@ -16,6 +17,12 @@ public class Person extends BaseEntity {
 	}
 	public String getNama() {
 		return nama;
+	}
+	public Address getAlamat() {
+		return alamat;
+	}
+	public void setAlamat(Address alamat) {
+		this.alamat = alamat;
 	}
 	public void setNama(String nama) {
 		this.nama = nama;
