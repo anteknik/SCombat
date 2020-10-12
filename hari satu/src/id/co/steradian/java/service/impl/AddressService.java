@@ -23,7 +23,7 @@ public class AddressService implements IAddressService {
 	@Override
 	public Person findById(Long id) {
 		List<Person> result = findAll();
-		System.out.println("CarService:findById : " + id);
+		System.out.println("AddressService:findById : " + id);
 		for (Person p : result) {
 			if (id.equals(p.getId())) {
 				return p;
@@ -40,9 +40,17 @@ public class AddressService implements IAddressService {
 	}
 	
 	@Override
-	public Person findBy(Address address) {
-		// TODO Auto-generated method stub
-		return null;
+	public Person findByAddress(String address) {
+		List<Person> result = findAll();
+		System.out.println("CarService:findByAddress : " +address);
+		for (Person p : result) {
+			if (address.equals(p.getAlamat().getJalan())) {
+				return p;
+			}
+			
+		}
+		return result.get(0);
+		
 	}
 
 
@@ -59,7 +67,7 @@ public class AddressService implements IAddressService {
 		n = n + 1;
 		
 		Person p = new Person();
-		//Address a = new Address();
+		Address a = new Address();
 		person.setId(n);
 		p.setId(n);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -71,8 +79,12 @@ public class AddressService implements IAddressService {
 			logger.info("input status");
 			input = br.readLine();
 			p.setStatus(input);
+			logger.info("input jalan");
+			input = br.readLine();
+			a.setJalan(input);
+			p.setAlamat(a);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		addressMap.put("person" + person.getId(), p);
@@ -80,4 +92,5 @@ public class AddressService implements IAddressService {
 		
 	}
 
+	
 }
